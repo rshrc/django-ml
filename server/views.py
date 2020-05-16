@@ -12,10 +12,10 @@ class GetSalaryAPIView(generics.GenericAPIView):
             data = request.data
 
             # Extract age from the post request body
-            age = float(data['age'])
+            exp = float(data['exp'])
 
             # load the salary predictor
-            salary = Loader(settings.BASE_DIR + "/predict/model.sav", [[age]]).load()
+            salary = Loader(settings.BASE_DIR + "/predict/model.sav", [[exp]]).load()
 
             # return a simple HTTP Response
             return HttpResponse(salary)
